@@ -30,9 +30,7 @@ app.put("/api/body", (req, res) => {
 });
 
 app.post("/api/body", (req, res) => {
-  res
-    .status(200)
-    .json({ ...req.body, resultado: req.body.num1 + req.body.num2 });
+  res.status(200).json({resultado: req.body.num1 + req.body.num2});
 });
 
 app.delete("/api/delete/:id", (req, res) => {
