@@ -1,0 +1,25 @@
+### obtener todos los talentos
+GET http://localhost:3000/talento
+
+### obtener un talento por su id
+GET http://localhost:3000/talento/8
+
+### crear un talento
+POST http://localhost:3000/talento
+Content-Type: application/json
+
+{
+    "name": "Luis Tejedor",
+    "email":"luist@hotmail.com",
+    "phone": "3124508986",
+    "password": "123456",
+    "activo": true
+}
+
+### actualizar un talento, excepto el email
+PATCH http://localhost:3000/talento/8
+Content-Type: application/json
+
+{
+    "activo": false
+}

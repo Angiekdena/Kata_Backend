@@ -1,21 +1,38 @@
-const talentoModels = require('./models/talento');
+const talentoModels = require('../models/talento');
 
 const createTalent = (req, res) => {
-  console.log(req.body);
-  res.status(201).json(req.body);
+  const { name, email, phone, password, activo } = req.body;
+
+  if (email !== '' && password !== '') {
+    talentoModels.createTalent({ name, email, phone, password, activo })
+      .then(results => res.status(201).json(results))
+      .catch(error => res.status(500).json(error));
+  } else {
+    res.status(400).send({ message: 'Nombre invalido' });
+  }
 };
 
 const getAll = (req, res) => {
-  const talentos = talentoModels.getAll();
-  res.send(talentos);
+  talentoModels.getAll()
+    .then(results => res.status(200).json(results))
+    .catch(error => res.status(500).json(error));
 };
 
 const getById = (req, res) => {
-  res.send('Llego al Get de Talento por ID');
+  const { id } = req.params;
+
+  talentoModels.getById(id)
+    .then(results => res.status(200).json(results))
+    .catch(error => res.status(500).json(error));
 };
 
 const updateTalent = (req, res) => {
-  res.json(req.body);
+  const { id } = req.params;
+  const { name, phone, password, activo } = req.body;
+
+  talentoModels.updateTalent(id, { name, phone, password, activo })
+    .then(results => res.status(201).json({ message: 'Usuario actualizado exitosamente' }))
+    .catch(error => res.status(500).json(error));
 };
 
 module.exports = {
