@@ -1,6 +1,13 @@
 const express = require('express');
-const router = express.Router();
+const clienteRouter = express.Router();
+const clientsController = require('../controllers/clienteController');
 
-router.get('/', () => {});
+clienteRouter.post('/', clientsController.createClients);
 
-module.exports = router;
+clienteRouter.get('/', clientsController.getAll);
+
+clienteRouter.get('/:id', clientsController.getById);
+
+clienteRouter.patch('/:id', clientsController.updateClients);
+
+module.exports = clienteRouter;

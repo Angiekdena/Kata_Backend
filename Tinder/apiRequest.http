@@ -1,3 +1,5 @@
+### TALENTOS
+
 ### obtener todos los talentos
 GET http://localhost:3000/talento
 
@@ -9,10 +11,10 @@ POST http://localhost:3000/talento
 Content-Type: application/json
 
 {
-    "name": "Luis Tejedor",
-    "email":"luist@hotmail.com",
-    "phone": "3124508986",
-    "password": "123456",
+    "name": "Emma Tejedor",
+    "email":"emma@hotmail.com",
+    "phone": "3132428838",
+    "password": "100323",
     "activo": true
 }
 
@@ -23,3 +25,32 @@ Content-Type: application/json
 {
     "activo": false
 }
+
+### CLIENTES
+
+### obtener todos los clientes
+GET http://localhost:3000/cliente
+
+### obtener un cliente por su id
+GET http://localhost:3000/cliente/1
+
+### crear un cliente
+POST http://localhost:3000/cliente
+Content-Type: application/json
+
+{
+    "name": "Rappi",
+    "email":"rappi@hotmail.com",
+    "phone": "3124567890",
+    "password": "345675",
+    "address": "Calle 187a No. 8 - 46"
+}
+
+### actualizar un cliente, excepto el email
+PATCH http://localhost:3000/talento/1
+Content-Type: application/json
+
+{
+    "activo": false
+}
+
