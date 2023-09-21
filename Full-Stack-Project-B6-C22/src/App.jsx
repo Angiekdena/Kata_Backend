@@ -1,7 +1,11 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import informacionLogo from './assets/informacion.png'
 import edificioLogo from '/edificio.jpg'
-import './App.css'
+import Footer from './componentes/Footer';
+import Navbar from './componentes/Navbar';
+import Main from './componentes/Main';
+
+import 'bulma/css/bulma.min.css'
 
 function App() {
 
@@ -15,8 +19,15 @@ function App() {
           <img src={informacionLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Todo a la Mano</h1>
-      
+      <div className='container'>
+        <Navbar/>
+        <Main/>
+        <Footer/>
+        <div  className='notification is-primary'>
+        <h1>Todo a la Mano</h1>
+        </div>
+      </div>
+            
     </>
   )
 }

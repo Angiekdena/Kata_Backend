@@ -6,6 +6,8 @@ talentoRouter.post('/', talentController.createTalent);
 
 talentoRouter.get('/', talentController.getAll);
 
+talentoRouter.get('/oferta', talentController.searchTalentosHabilidad);
+
 talentoRouter.get('/:id', talentController.getById);
 
 talentoRouter.patch('/:id', talentController.updateTalent);

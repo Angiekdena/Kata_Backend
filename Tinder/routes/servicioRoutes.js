@@ -8,6 +8,6 @@ servicioRouter.get('/', serviceController.getAll);
 
 servicioRouter.get('/:id', serviceController.getById);
 
-servicioRouter.patch('/:id', serviceController.updateClients);
+servicioRouter.patch('/:id', serviceController.updateService);
 
 module.exports = servicioRouter;
