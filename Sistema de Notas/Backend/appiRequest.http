@@ -1,0 +1,63 @@
+### USUARIOS
+
+### Crear un usuario
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "Luis Tejedor",
+    "email":"luis@hotmail.com",
+    "password": "456159"
+}
+
+### Actualizar un usuario, excepto el email
+PATCH http://localhost:3000/user/651491192095f44171c25601
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NTk1MjMzNywiZXhwIjoxNjk1OTU1OTM3fQ.ku1MEKDQi2e4XytJflk3KSgep64Hjhqsd1LLFGkYH_o
+Content-Type: application/json
+
+{
+    "password": "789123",
+    "name": "Angie Ximena Cadena"
+}
+
+### Eliminar un usuario
+DELETE http://localhost:3000/user/651491192095f44171c25601
+
+
+### login un usuario
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "password": "789123",
+    "email": "angie@hotmail.com"
+}
+
+### NOTES
+
+### Crear una nota
+POST http://localhost:3000/note
+Content-Type: application/json
+
+{
+    "title": "Ingredientes para postre de limon",
+    "description":"1 taco de galletas Ducales, 1 tarro grande de Crema de Leche, 3 cucharadas soperas de Maizena, 3 pocillos de leche, 1 pocillo de azúcar, 1 yema de huevo, ½ pocillo de Zumo de limón",
+    "id": "651491192095f44171c25601"
+}
+
+### Obtener todas las notas, de un usuario
+GET http://localhost:3000/note/651491192095f44171c25601
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NTk1MTI5MCwiZXhwIjoxNjk1OTU0ODkwfQ.pkFMGRIqevGS1AaUoUXkbyNCpzXggKocOkyI1H4rREw
+
+### Actualizar una nota
+PATCH http://localhost:3000/note/6514c982815c3880e573c899
+Content-Type: application/json
+
+{
+    "title": "Ingredientes para torta 3 leches"
+}
+
+### Eliminar una nota
+DELETE http://localhost:3000/note/65149afb0e29be2eb4828a9b
+
+
