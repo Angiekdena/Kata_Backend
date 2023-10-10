@@ -1,5 +1,5 @@
 const noteModel = require('../models/note');
-const { validateNotes, validatePartialNotes } = require('../shemas/validation');
+const { validateNotes } = require('../shemas/validation');
 
 const getById = (req, res) => {
   return noteModel.getById(req.userId)
@@ -13,9 +13,9 @@ const insertNote = async (req, res) => {
     return res.status(400).json({ success: false, message: JSON.parse(result.error.message) });
   }
 
-  //const { id, title, description } = req.body;
+  // const { id, title, description } = req.body;
 
-  await noteModel.insertNote({ result.data })
+  await noteModel.insertNote(result.data)
     .then((response) => {
       res.status(201).send({ success: true, message: 'Nota agregada' });
     })
@@ -39,13 +39,8 @@ const updateNote = async (req, res) => {
 
 const removeNote = async (req, res) => {
   const { id } = req.params;
-  
-  const result = validatePartialNotes(req.body);
-  if (!result.success) {
-    return res.status(400).json({ success: false, message: JSON.parse(result.error.message) });
-  }
 
-  await noteModel.removeNote(validatePartialNotes)
+  await noteModel.removeNote(id)
     .then((response) => {
       res.status(201).send({ success: true, message: 'Nota Eliminada' });
     })
