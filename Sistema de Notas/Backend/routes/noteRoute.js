@@ -2,7 +2,7 @@ const express = require('express');
 const noteRouter = express.Router();
 const noteController = require('../controllers/noteController');
 
-noteRouter.get('/:id/', noteController.getById);
+noteRouter.get('/', noteController.getById);
 
 noteRouter.post('/', noteController.insertNote);
 

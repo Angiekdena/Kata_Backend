@@ -1,13 +1,9 @@
-import { Outlet } from "react-router-dom";
-import SideBar from "./SideBar";
-
-export default function Layout () {
-    return <>
-        <header></header>
-        <main className="d-flex flex-nowrap vh-100">
-            <SideBar></SideBar>
-            <Outlet></Outlet>
-        </main>
-        <footer></footer>
-    </>
+const Layout = ({ children }) => {
+    return (
+        <div className="container mt-5 pt-4">
+            {children}
+        </div>
+    )
 }
+
+export default Layout

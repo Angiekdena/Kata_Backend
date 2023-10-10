@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import Layout from "../componentes/Layout";
+
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -7,7 +9,8 @@ export default function Login() {
     const navigate = useNavigate();
 
     const login = () => {
-        fetch('http://localhost:3000/user/login', {
+        const API_URL = import.meta.env.VITE_API_URL
+        fetch(`${API_URL}/user/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,10 +23,10 @@ export default function Login() {
             .then(response => response.json())
             .then(json => {
                 console.log(json.message)
-                if(json.message) {
+                if(json && json.success == true) {
                     window.sessionStorage.setItem('token', json.message);
                     alert('inicio correcto')
-                    navigate("/notes");
+                    navigate("/MyNotes");
                 } else {
                     alert('Datos incorrectos');
                 }
@@ -45,7 +48,9 @@ export default function Login() {
         login();
     };
 
-    return <div className="container text-center">
+    return (
+<Layout>
+    <div className="container text-center">
 {
         <main className="form-signin w-80 m-auto">
         <img className="mb-4 m-30" src="https://www.lostrompos.com.mx/assets/user-default-1534028036fdbd765592addc5403fc97836cbb39353a38fa06a4be250a1ca874.jpg" alt="" width="72" height="72"/>
@@ -71,4 +76,7 @@ export default function Login() {
         </form>
     </main> }
     </div>
+    </Layout>
+    )
+    
 }

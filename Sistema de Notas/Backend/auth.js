@@ -5,7 +5,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 function auth (req, res, next) {
   const token = req.headers.authorization;
-  console.log(token);
+  // console.log(token);
   if (!token) {
     return res.status(401).send({ message: 'Token no proporcionado' });
   }

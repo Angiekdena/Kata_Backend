@@ -38,13 +38,17 @@ const insertUser = async (user) => {
 };
 
 const login = async (user) => {
+  const result = { success: false };
+
   const oldUser = await User.findOne({ email: user.email });
   console.log(oldUser);
   if (!oldUser || !await bcrypt.compare(user.password, oldUser.password)) {
-    return 'Email o contraseña incorrectos';
-  }
-  const token = jwt.sign({ id: oldUser._id }, SECRET_KEY, { expiresIn: '1h' });
-  return token;
+    result.message = 'Email o contraseña incorrectos';
+  } else {
+    const token = jwt.sign({ id: oldUser._id }, SECRET_KEY, { expiresIn: '1h' });
+    result.success = true;
+    result.data = token;
+  } return result;
 };
 
 const updateUser = async (id, newUser) => {

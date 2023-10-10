@@ -5,19 +5,18 @@ POST http://localhost:3000/user
 Content-Type: application/json
 
 {
-    "name": "Luis Tejedor",
-    "email":"luis@hotmail.com",
-    "password": "456159"
+    "name":"Liliana Tejedor",
+    "email":"liliana@hotmail.com",
+    "password": "123456"
 }
 
 ### Actualizar un usuario, excepto el email
 PATCH http://localhost:3000/user/651491192095f44171c25601
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NTk1MjMzNywiZXhwIjoxNjk1OTU1OTM3fQ.ku1MEKDQi2e4XytJflk3KSgep64Hjhqsd1LLFGkYH_o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NjcwNjM5NywiZXhwIjoxNjk2NzA5OTk3fQ.qADxd65kpDRHOzXmzB92hreaLXZpi9hisoiR9N0THNE
 Content-Type: application/json
 
 {
-    "password": "789123",
-    "name": "Angie Ximena Cadena"
+    "password": "123456"
 }
 
 ### Eliminar un usuario
@@ -46,8 +45,8 @@ Content-Type: application/json
 }
 
 ### Obtener todas las notas, de un usuario
-GET http://localhost:3000/note/651491192095f44171c25601
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NTk1MTI5MCwiZXhwIjoxNjk1OTU0ODkwfQ.pkFMGRIqevGS1AaUoUXkbyNCpzXggKocOkyI1H4rREw
+GET http://localhost:3000/note
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NjcwODA5MSwiZXhwIjoxNjk2NzExNjkxfQ.2Ra5kyvh5R8mkSUh0wSL371e5VZsNWcHkzkkmB1NQIA
 
 ### Actualizar una nota
 PATCH http://localhost:3000/note/6514c982815c3880e573c899

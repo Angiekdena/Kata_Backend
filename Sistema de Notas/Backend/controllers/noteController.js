@@ -1,22 +1,26 @@
 const noteModel = require('../models/note');
+const { validateNotes, validatePartialNotes } = require('../shemas/validation');
 
 const getById = (req, res) => {
-  const { id } = req.params;
-
-  return noteModel.getById(id)
+  return noteModel.getById(req.userId)
     .then(results => res.status(200).json(results))
     .catch(error => res.status(500).json(error));
 };
 
 const insertNote = async (req, res) => {
-  const { id, title, description } = req.body;
+  const result = validateNotes(req.body);
+  if (!result.success) {
+    return res.status(400).json({ success: false, message: JSON.parse(result.error.message) });
+  }
 
-  await noteModel.insertNote({ userid: id, title, description })
+  //const { id, title, description } = req.body;
+
+  await noteModel.insertNote({ result.data })
     .then((response) => {
-      res.status(201).send({ message: 'Nota agregada' });
+      res.status(201).send({ success: true, message: 'Nota agregada' });
     })
     .catch((error) => {
-      res.status(401).send({ message: `Error, datos invalidos. ${error}` });
+      res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });
     });
 };
 
@@ -26,22 +30,27 @@ const updateNote = async (req, res) => {
 
   await noteModel.updateNote(id, { title, description })
     .then((response) => {
-      res.status(201).send({ message: 'Nota actualizada' });
+      res.status(201).send({ success: true, message: 'Nota actualizada' });
     })
     .catch((error) => {
-      res.status(401).send({ message: `Error, datos invalidos. ${error}` });
+      res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });
     });
 };
 
 const removeNote = async (req, res) => {
   const { id } = req.params;
+  
+  const result = validatePartialNotes(req.body);
+  if (!result.success) {
+    return res.status(400).json({ success: false, message: JSON.parse(result.error.message) });
+  }
 
-  await noteModel.removeNote(id)
+  await noteModel.removeNote(validatePartialNotes)
     .then((response) => {
-      res.status(201).send({ message: 'Nota Eliminada' });
+      res.status(201).send({ success: true, message: 'Nota Eliminada' });
     })
     .catch((error) => {
-      res.status(401).send({ message: `Error, datos invalidos. ${error}` });
+      res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });
     });
 };
 
