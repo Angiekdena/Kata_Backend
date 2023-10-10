@@ -27,7 +27,7 @@ const login = async (req, res) => {
 
   await userModel.login({ email, password })
     .then((response) => {
-      res.status(201).send({ success: true, message: response });
+      res.status(201).send(response);
     })
     .catch((error) => {
       res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });

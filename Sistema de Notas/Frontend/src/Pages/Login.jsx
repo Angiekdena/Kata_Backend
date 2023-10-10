@@ -22,9 +22,9 @@ export default function Login() {
         })
             .then(response => response.json())
             .then(json => {
-                console.log(json.message)
+                console.log(json)
                 if(json && json.success == true) {
-                    window.sessionStorage.setItem('token', json.message);
+                    window.sessionStorage.setItem('token', json.data);
                     alert('inicio correcto')
                     navigate("/MyNotes");
                 } else {
