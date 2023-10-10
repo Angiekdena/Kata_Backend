@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
     <nav className="navbar navbar-expand-md fixed-top bg-light">
   <div className="container-fluid">
-    <img src="https://cdn-icons-png.flaticon.com/512/7803/7803926.png" className="rounded float-left" alt="NOTY" />
+    <img src="https://cdn-icons-png.flaticon.com/512/7803/7803926.png" width="30" height="30" className="rounded float-left" alt="NOTY" />
     {/* <a className="navbar-brand fw-bold" href="#">NOTY</a> */}
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
