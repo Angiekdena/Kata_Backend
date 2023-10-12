@@ -15,7 +15,7 @@ const insertUser = async (req, res) => {
 
   await userModel.insertUser(result.data)
     .then((response) => {
-      res.status(201).send({ success: true, message: 'Usuario agregado' });
+      res.status(201).send({ success: true, message: 'Usuario agregado', data: response });
     })
     .catch((error) => {
       res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });
