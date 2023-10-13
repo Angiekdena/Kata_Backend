@@ -11,7 +11,6 @@ function CreateNote() {
 
     const fetchData=()=>{        
         if(noteId){
-            console.log('ejecuta get')
             const API_URL = import.meta.env.VITE_API_URL
             fetch(`${API_URL}/note/${noteId}`, {
                 method: "GET",
@@ -31,7 +30,6 @@ function CreateNote() {
     }
 
     useEffect(() => {
-        console.log('useEffect ejecutado');
         fetchData();
       }, []);
 
@@ -96,7 +94,7 @@ function CreateNote() {
         <label htmlFor="floatingInput">Descripcion</label>
     </div>
 
-    <button className="btn btn-primary w-100 py-2" type="submit" >{noteId?'Editar nota':'Crear Nota'}</button>
+    <button className="btn btn-dark w-50 py-2" type="submit" >{noteId?'Editar nota':'Crear Nota'}</button>
     <p className="mt-5 mb-3 text-body-secondary">© AngieCadena - 2023</p>
 </form>
 </main>

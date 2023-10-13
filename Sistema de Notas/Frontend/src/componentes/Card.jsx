@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 import ButtonNav from "./ButtonNav"
 
 const Card = (data) => { 
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
 
 const eliminar=(id)=>{
         const API_URL = import.meta.env.VITE_API_URL
@@ -14,7 +14,7 @@ const eliminar=(id)=>{
             }
         })
         .then(response => response.json())
-        .then(data => navigate("/MyNotes"))
+        .then(data => console.log(data))
 }
 
     return(

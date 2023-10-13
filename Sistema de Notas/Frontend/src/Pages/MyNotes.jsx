@@ -17,18 +17,22 @@ useEffect(() => {
     })
     .then(response => response.json())
     .then(data => setNotes(data))
-}, [])
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}, [])                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
 return (
     <Layout>
+        <div className='mb-4'>
+        <ButtonNav texto= "Crear una Nota" ruta="/Notes" styles="btn btn-dark me-3"/>
+        <ButtonNav texto= "Salir" ruta="/login" styles="btn btn-dark"/>        
+        </div>
+
+        <div className='row row-cols-1 row-cols-md-3 g-4'>        
         {
             notes?.map((note)=>(
                 <Card key={note._id} data={note} />
              ))
         }
-        <ButtonNav texto= "Crear una Nota" ruta="/Notes" styles="btn btn-primary me-3"/>
-        <ButtonNav texto= "Salir" ruta="/login" styles="btn btn-info"/>
+        </div>        
     </Layout>
 )
 }
