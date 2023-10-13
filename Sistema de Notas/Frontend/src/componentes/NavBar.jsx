@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
 
     return (
-    <nav className="navbar navbar-expand-md fixed-top bg-light">
+    <nav className="navbar navbar-expand-md fixed-top bg-light fs-5">
   <div className="container-fluid">
-    <img src="https://cdn-icons-png.flaticon.com/512/7803/7803926.png" width="30" height="30" className="rounded float-left" alt="NOTY" />
-    {/* <a className="navbar-brand fw-bold" href="#">NOTY</a> */}
+    <img src="https://cdn-icons-png.flaticon.com/512/7803/7803926.png" width="35" height="35" className="rounded float-left" alt="NOTY" />
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -16,14 +15,14 @@ const NavBar = () => {
         <NavLink
             to='/'
             className="nav-link">
-            Home
+            Inicio
           </NavLink>
         </li>
         <li className="nav-item">
         <NavLink
             to='/MyNotes'
             className="nav-link">
-            My Notes
+            Mis Notas
           </NavLink>
         </li>
       </ul>
@@ -35,14 +34,14 @@ const NavBar = () => {
         <NavLink
             to='/SingIn'
             className="nav-link">
-            Sign In
+            Registrarse
           </NavLink>
         </li>
         <li className="nav-item">
         <NavLink
             to='/Login'
             className="nav-link">
-            Login
+            Ingresar
           </NavLink>
         </li>
       </ul>

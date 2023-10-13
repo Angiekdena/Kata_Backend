@@ -2,6 +2,7 @@
 import { BrowserRouter, useRoutes} from 'react-router-dom'
 import Home from './Home';
 import MyNotes from './MyNotes';
+import Notes from './Notes';
 import Login from './Login';
 import SingIn from './SingIn'
 import NotFound from './NotFound';
@@ -14,8 +15,10 @@ const AppRoutes = () => {
     const routes = useRoutes([
       {path: "/", element: <Home />},
       {path: "/MyNotes",element: <MyNotes />},
+      {path: "/Notes",element: <Notes />},
       {path: "/Login", element: <Login />},
       {path: "/SingIn", element: <SingIn />},
+      {path: "/Notes/:noteId",element: <Notes />},
       {path: "*", element: <NotFound />},
   ]);
   return routes

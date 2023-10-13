@@ -24,13 +24,19 @@ const noteSchema = {
 
 const Note = mongoose.model('notes', noteSchema);
 
-const getById = async (userId) => {
+const getByUser = async (userId) => {
   const id = new mongoose.Types.ObjectId(userId);
   const result = await Note.find({ userid: id });
   return result;
 };
 
-const insertNote = async (note) => {
+const getById = async (noteId) => {
+  const result = await Note.findById(noteId);
+  return result;
+};
+
+const insertNote = async (note, userId) => {
+  note.userid = new mongoose.Types.ObjectId(userId);
   return await Note.create(note);
 };
 
@@ -54,6 +60,7 @@ const removeNote = async (id) => {
 
 module.exports = {
   getById,
+  getByUser,
   insertNote,
   updateNote,
   removeNote

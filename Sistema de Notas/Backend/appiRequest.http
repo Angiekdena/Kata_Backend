@@ -28,7 +28,7 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "password": "789123",
+    "password": "123456",
     "email": "angie@hotmail.com"
 }
 
@@ -47,6 +47,11 @@ Content-Type: application/json
 ### Obtener todas las notas, de un usuario
 GET http://localhost:3000/note
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NjcwODA5MSwiZXhwIjoxNjk2NzExNjkxfQ.2Ra5kyvh5R8mkSUh0wSL371e5VZsNWcHkzkkmB1NQIA
+
+### Obtener una nota por Id
+GET http://localhost:3000/note/6525ea5f8ca7fccf62a2de59
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTQ5MTE5MjA5NWY0NDE3MWMyNTYwMSIsImlhdCI6MTY5NzA3NDA4MywiZXhwIjoxNjk3MDc3NjgzfQ.HSRk9voQ5hb4LSkLeRY9PH6hNNag5OqZWy6Ll7nne-s
+
 
 ### Actualizar una nota
 PATCH http://localhost:3000/note/6514c982815c3880e573c899

@@ -1,9 +1,16 @@
 const noteModel = require('../models/note');
 const { validateNotes } = require('../shemas/validation');
 
-const getById = (req, res) => {
-  return noteModel.getById(req.userId)
+const getByUser = (req, res) => {
+  return noteModel.getByUser(req.userId)
     .then(results => res.status(200).json(results))
+    .catch(error => res.status(500).json(error));
+};
+
+const getById = (req, res) => {
+  const { id } = req.params;
+  return noteModel.getById(id)
+    .then(results => res.status(200).json({ success: true, data: results }))
     .catch(error => res.status(500).json(error));
 };
 
@@ -13,14 +20,12 @@ const insertNote = async (req, res) => {
     return res.status(400).json({ success: false, message: JSON.parse(result.error.message) });
   }
 
-  // const { id, title, description } = req.body;
-
-  await noteModel.insertNote(result.data)
+  await noteModel.insertNote(result.data, req.userId)
     .then((response) => {
       res.status(201).send({ success: true, message: 'Nota agregada' });
     })
     .catch((error) => {
-      res.status(401).send({ success: false, message: `Error, datos invalidos. ${error}` });
+      res.status(400).send({ success: false, message: `Error, datos invalidos. ${error}` });
     });
 };
 
@@ -50,6 +55,7 @@ const removeNote = async (req, res) => {
 };
 
 module.exports = {
+  getByUser,
   getById,
   insertNote,
   updateNote,

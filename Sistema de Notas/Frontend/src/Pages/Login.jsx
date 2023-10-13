@@ -2,8 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Layout from "../componentes/Layout";
 
-
-export default function Login() {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -50,10 +49,10 @@ export default function Login() {
 
     return (
 <Layout>
+<div className="modal-content rounded-4 shadow">
     <div className="container text-center">
-{
-        <main className="form-signin w-80 m-auto">
-        <img className="mb-4 m-30" src="https://www.lostrompos.com.mx/assets/user-default-1534028036fdbd765592addc5403fc97836cbb39353a38fa06a4be250a1ca874.jpg" alt="" width="72" height="72"/>
+        <main className="form-signin w-80 p-5 m-auto">
+        <img className="mb-4 m-30" src="https://cdn-icons-png.flaticon.com/512/7803/7803926.png" alt="" width="72" height="72"/>
         <h1 className="h3 fw-normal">Bienvenid@ a tu Sistema de Notas</h1>
 
         <form className="my-3 p-3" onSubmit={handleSubmit}>
@@ -62,21 +61,25 @@ export default function Login() {
                 <input value={email} type="email" className="form-control"
                 onChange={handleEmail}
                 id="floatingInput" placeholder="name@example.com" />
-                <label htmlFor="floatingInput">Email address</label>
+                <label htmlFor="floatingInput">Correo Electronico</label>
             </div>
             <div className="form-floating mb-3">
                 <input value={password} type="password" className="form-control" 
                 onChange={handlePassword} 
                 id="floatingPassword" placeholder="Password" />
-                <label htmlFor="floatingPassword">Password</label>
+                <label htmlFor="floatingPassword">Contraseña</label>
             </div>
 
-            <button className="btn btn-primary w-100 py-2" type="submit" >Sign in</button>
+            <button className="btn btn-primary btn-lg py-2" type="submit" >Ingresar</button>
             <p className="mt-5 mb-3 text-body-secondary">© AngieCadena - 2023</p>
         </form>
-    </main> }
+        </main> 
+        </div>
     </div>
     </Layout>
     )
     
 }
+
+
+export default Login
