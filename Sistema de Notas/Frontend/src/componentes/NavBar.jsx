@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { LoginNavContext } from "../Context/ContextLogin";
 
 const NavBar = () => {
+  const context = useContext(LoginNavContext)
 
     return (
     <nav className="navbar navbar-expand-md fixed-top bg-light fs-5">
@@ -28,7 +31,7 @@ const NavBar = () => {
       </ul>
       <ul className="navbar-nav mb-2 mb-md-0">
         <li className="nav-item">
-          <span className="nav-link">angie@hotmail.com</span>
+          <span className="nav-link">{context.email}</span>
         </li>
         <li className="nav-item">
         <NavLink

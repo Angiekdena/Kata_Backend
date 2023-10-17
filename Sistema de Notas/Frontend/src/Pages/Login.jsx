@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom";
 import Layout from "../componentes/Layout";
+import {LoginNavContext} from '../Context/ContextLogin'
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const context = useContext(LoginNavContext)
     const navigate = useNavigate();
 
     const login = () => {
@@ -21,7 +23,6 @@ function Login() {
         })
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 if(json && json.success == true) {
                     window.sessionStorage.setItem('token', json.data);
                     alert('inicio correcto')
@@ -35,11 +36,9 @@ function Login() {
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
-        console.log(e.target.value);
     }
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        console.log(e.target.value);
     }
 
     const handleSubmit = (e) => {
@@ -70,7 +69,7 @@ function Login() {
                 <label htmlFor="floatingPassword">Contraseña</label>
             </div>
 
-            <button className="btn btn-dark w-50 py-2" type="submit" >Ingresar</button>
+            <button className="btn btn-dark w-50 py-2" type="submit" onClick={() => context.handleEmail(context.email)}>Ingresar</button>
             <p className="mt-5 mb-3 text-body-secondary">© AngieCadena - 2023</p>
         </form>
         </main> 

@@ -1,5 +1,5 @@
-//import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { BrowserRouter, useRoutes} from 'react-router-dom'
+import { LoginNavProvider } from '../Context/ContextLogin'
 import Home from './Home';
 import MyNotes from './MyNotes';
 import Notes from './Notes';
@@ -26,10 +26,13 @@ const AppRoutes = () => {
   
   const App = () => {
   return (
-    <BrowserRouter>
+    <LoginNavProvider>
+      <BrowserRouter>
         <AppRoutes />
         <NavBar />
     </BrowserRouter>
+    </LoginNavProvider>
+    
   )
   }
 
